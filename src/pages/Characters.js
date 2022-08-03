@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 // import packages
 
-function Home() {
+function Characters() {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -31,15 +31,23 @@ function Home() {
       {data.results.map((character, index) => {
         // console.log(data.results.name);
         return (
-          <div>
-            <p key={index}>{character.name}</p>
-            <img src={character.thumbnail.path + ".jpg"} />
+          <div key={index}>
+            <p>{character.name}</p>
+            {/* il faut concaténer les 2 clés
+            ce code marche aussi mais pas dynamique avec le jpg en dur  
+            // <img src={character.thumbnail.path + ".jpg"} />*/}
+            <img
+              src={`${character.thumbnail.path + "."}${
+                character.thumbnail.extension
+              }`}
+              alt=""
+            />
+            <p>{character.description}</p>
           </div>
         );
       })}
-      <h1>hello sweetie</h1>
     </div>
   );
 }
 
-export default Home;
+export default Characters;
