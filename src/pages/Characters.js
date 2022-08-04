@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // import packages
 
@@ -31,7 +32,7 @@ function Characters() {
       {data.results.map((character, index) => {
         // console.log(data.results.name);
         return (
-          <div key={index}>
+          <Link to={`/character/${character._id}`} key={index}>
             <p>{character.name}</p>
             {/* il faut concaténer les 2 clés
             ce code marche aussi mais pas dynamique avec le jpg en dur  
@@ -42,8 +43,7 @@ function Characters() {
               }`}
               alt=""
             />
-            <p>{character.description}</p>
-          </div>
+          </Link>
         );
       })}
     </div>
