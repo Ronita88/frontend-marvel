@@ -43,6 +43,7 @@ function Characters() {
               }`}
               alt=""
             />
+            <p>{character.description}</p>
           </Link>
         );
       })}

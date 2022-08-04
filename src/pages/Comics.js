@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -29,14 +30,13 @@ function Comics() {
     <div>
       {data.results.map((comic, index) => {
         return (
-          <div key={index}>
+          <Link to={`/comic/${comic._id}`} key={index}>
             <p k>{comic.title}</p>
             <img
               src={`${comic.thumbnail.path + "."}${comic.thumbnail.extension}`}
               alt=""
             />
-            <p>{comic.description}</p>
-          </div>
+          </Link>
         );
       })}
     </div>
