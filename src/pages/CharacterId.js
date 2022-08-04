@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -28,10 +28,10 @@ const CharacterId = () => {
   return isLoading ? (
     <p>En cours de chargement du character...</p>
   ) : (
-    <div>
+    <Link to={`/characters`}>
       <img src={`${data.thumbnail.path + "."}${data.thumbnail.extension}`} />
       <p>{data.description}</p>
-    </div>
+    </Link>
   );
 };
 

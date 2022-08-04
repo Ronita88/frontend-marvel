@@ -1,0 +1,12 @@
+body {
+  background-color: black;
+}
+
+.container {
+  width: 1200px;
+  background-color: black;
+}
+
+.homepage img {
+  border: 1px solide blueviolet;
+}

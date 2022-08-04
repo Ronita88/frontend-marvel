@@ -10,6 +10,7 @@ const Header = () => {
           <img className="logo" src={logo} alt="" />
         </Link>
       </div>
+      <h1> LET'S DIVE IN OUR WORLD</h1>
       <div className="nav-category">
         <Link to={`/characters`}>
           <a>CHARACTERS</a>
@@ -19,8 +20,6 @@ const Header = () => {
           <a>COMICS</a>
         </Link>
       </div>
-
-      <h1> WELCOME TO MARVEL TEMPLE</h1>
     </div>
   );
 };

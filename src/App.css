@@ -7,28 +7,9 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: blue;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  width: 1200px;
+  background-color: black;
 }
 
 .header-container {
@@ -54,6 +35,7 @@
 }
 
 .nav-category a {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: white;
   display: flex;
   justify-content: space-around;
@@ -69,4 +51,22 @@ a:hover {
   width: 150px;
   height: 4Opx;
   border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.header-container img {
+  max-width: 100%;
+  display: flex;
+  margin: 0 auto;
+  align-items: flex-end;
+  /* background-color: red; */
+}
+
+p {
+  color: white;
 }
