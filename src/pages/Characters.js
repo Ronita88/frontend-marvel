@@ -1,8 +1,7 @@
+// import packages
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-// import packages
 
 function Characters() {
   const [data, setData] = useState("");
@@ -29,6 +28,14 @@ function Characters() {
     <p>Encours de chargement...</p>
   ) : (
     <div className="App">
+      <div>
+        <h1>MARVEL CHARACTERS</h1>
+        <h3>
+          Get hooked on a hearty helping of heroes and villains from the humble
+          House of Ideas
+        </h3>
+      </div>
+
       {data.results.map((character, index) => {
         // console.log(data.results.name);
         return (
@@ -43,7 +50,6 @@ function Characters() {
               }`}
               alt=""
             />
-            <p>{character.description}</p>
           </Link>
         );
       })}

@@ -3,6 +3,7 @@
 }
 
 .App {
+  background-color: black;
   text-align: center;
 }
 
@@ -18,7 +19,7 @@
 }
 
 .App-link {
-  color: red;
+  color: blue;
 }
 
 @keyframes App-logo-spin {
@@ -28,4 +29,44 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.header-container {
+  border: 1px solid blue;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 150px;
+}
+
+.nav-category {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid orange;
+}
+
+.nav-category a {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  width: 150px;
+  border: 1px solid red;
+}
+
+a:hover {
+  color: red;
+  background-color: white;
+  width: 150px;
+  height: 4Opx;
+  border-radius: 5px;
 }

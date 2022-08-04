@@ -8,9 +8,13 @@ import ComicId from "./pages/ComicId";
 import Characters from "./pages/Characters";
 import CharacterId from "./pages/CharacterId";
 
+//import components
+import Header from "./components/Header";
+
 function App() {
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/characters" element={<Characters />} />
