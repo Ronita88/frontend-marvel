@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../css/characters.css";
+import "../css/characters&comics.css";
 
 function Characters() {
   const [data, setData] = useState("");
@@ -41,18 +41,22 @@ function Characters() {
         {data.results.map((character, index) => {
           // console.log(data.results.name);
           return (
-            <Link to={`/character/${character._id}`} key={index}>
-              {/* il faut concaténer les 2 clés
-            ce code marche aussi mais pas dynamique avec le jpg en dur  
-            // <img src={character.thumbnail.path + ".jpg"} />*/}
-              <img
-                src={`${character.thumbnail.path + "."}${
-                  character.thumbnail.extension
-                }`}
-                alt=""
-              />
-              <p>{character.name}</p>
-            </Link>
+            <div className="container-grid">
+              <div className="card">
+                <Link to={`/character/${character._id}`} key={index}>
+                  {/* il faut concaténer les 2 clés
+          ce code marche aussi mais pas dynamique avec le jpg en dur  
+          // <img src={character.thumbnail.path + ".jpg"} />*/}
+                  <img
+                    src={`${character.thumbnail.path + "."}${
+                      character.thumbnail.extension
+                    }`}
+                    alt=""
+                  />
+                  <p>{character.name}</p>
+                </Link>
+              </div>
+            </div>
           );
         })}
       </div>

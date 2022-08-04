@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "../css/characters&comics.css";
 
 // import packages
 
@@ -27,18 +28,26 @@ function Comics() {
   return isLoading ? (
     <p>Encours de chargement...</p>
   ) : (
-    <div>
-      {data.results.map((comic, index) => {
-        return (
-          <Link to={`/comic/${comic._id}`} key={index}>
-            <p k>{comic.title}</p>
-            <img
-              src={`${comic.thumbnail.path + "."}${comic.thumbnail.extension}`}
-              alt=""
-            />
-          </Link>
-        );
-      })}
+    <div className="App">
+      <div>
+        {data.results.map((comic, index) => {
+          return (
+            <div className="container-grid">
+              <div className="card">
+                <Link to={`/comic/${comic._id}`} key={index}>
+                  <img
+                    src={`${comic.thumbnail.path + "."}${
+                      comic.thumbnail.extension
+                    }`}
+                    alt=""
+                  />
+                  <p k>{comic.title}</p>
+                </Link>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

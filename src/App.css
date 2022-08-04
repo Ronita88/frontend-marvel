@@ -4,7 +4,9 @@
 
 .App {
   background-color: black;
+  border: 1px solid greenyellow;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .container {

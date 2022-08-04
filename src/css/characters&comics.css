@@ -1,0 +1,26 @@
+.container-grid {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.card {
+  border: 1px solid orange;
+  margin: 10px;
+}
+
+.characters-img {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 100%;
+  max-width: 100%;
+  padding-top: 10px;
+  justify-content: center;
+  border: 1px solid blue;
+  box-sizing: border-box;
+}
+
+.characters-img img {
+  width: 190px;
+  height: 210px;
+}
