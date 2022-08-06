@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+// cette page affiche tous les comics
+
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../css/characters&comics.css";
@@ -8,12 +10,14 @@ import "../css/characters&comics.css";
 function Comics() {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://backend-marvel-rone.herokuapp.com/comics"
+          `https://backend-marvel-rone.herokuapp.com/comics`
         );
         console.log(response.data);
         setData(response.data);
@@ -29,20 +33,20 @@ function Comics() {
     <p>Encours de chargement...</p>
   ) : (
     <div className="App">
-      <div>
+      <div className="characters-img">
         {data.results.map((comic, index) => {
           return (
-            <div className="container-grid">
-              <div className="card">
-                <Link to={`/comic/${comic._id}`} key={index}>
+            <div>
+              <div>
+                <div key={index}>
                   <img
                     src={`${comic.thumbnail.path + "."}${
                       comic.thumbnail.extension
                     }`}
                     alt=""
                   />
-                  <p k>{comic.title}</p>
-                </Link>
+                  <p>{comic.title}</p>
+                </div>
               </div>
             </div>
           );

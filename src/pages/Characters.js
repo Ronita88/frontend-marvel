@@ -1,3 +1,6 @@
+// cette page liste tous les characters
+// je veux que quand je clique sur un character, me renvoie à la page du character
+
 // import packages
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -38,11 +41,14 @@ function Characters() {
       </div>
 
       <div className="characters-img">
+        {/* je veux mapper le contenu de l'url */}
         {data.results.map((character, index) => {
           // console.log(data.results.name);
+
           return (
             <div className="container-grid">
               <div className="card">
+                {/*  si veut faire apparaitre juste la photo, mettre ce qui suit dans le link to ${character._id} */}
                 <Link to={`/character/${character._id}`} key={index}>
                   {/* il faut concaténer les 2 clés
           ce code marche aussi mais pas dynamique avec le jpg en dur  
