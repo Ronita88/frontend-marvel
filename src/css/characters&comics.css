@@ -1,13 +1,9 @@
-.container-grid {
+/* aucun intret mais à vérifier */
+/* .container-grid {
   max-width: 100%;
   display: flex;
   flex-wrap: nowrap;
-}
-
-.card {
-  border: 1px solid orange;
-  margin: 10px;
-}
+} */
 
 .characters-img {
   display: flex;
@@ -16,18 +12,48 @@
   max-width: 100%;
   padding-top: 10px;
   justify-content: center;
-  border: 1px solid blue;
+  /* border: 5px solid blue; */
   box-sizing: border-box;
 }
 
-.characters-img img {
-  max-width: 190px;
+/* .characters-img img {
   max-height: 240px;
-}
+} */
 
 .characters-img p {
-  max-width: 180px;
+  max-width: 160px;
   text-align: center;
+}
+
+.card {
+  border: 1px solid orange;
+  margin: 20px;
+  border-bottom-right-radius: 20px;
+  justify-content: center;
+  /* width: 200px; */
+}
+
+.container-img {
+  /* border: solid 2px red; */
+  height: 80%;
+}
+
+.container-img img {
+  filter: grayscale(100%);
+  height: 280px;
+  width: 240px;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+.container-img img:hover {
+  filter: grayscale(0);
+  transform: scale(1.4);
 }
 
 .filters {
@@ -35,7 +61,7 @@
 }
 
 .pagination {
-  border: solid 1px red;
+  /* border: solid 1px red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,14 +86,15 @@
 }
 
 .searchbar {
-  width: 80rem;
+  width: 100%;
   height: 2.5rem;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid green;
-  border-radius: 10rem;
+  /* border: 1px solid green; */
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
   background-color: red;
 }
 

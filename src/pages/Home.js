@@ -6,9 +6,11 @@ import "../css/home.css";
 
 const Home = () => {
   return (
-    <div className="header-container">
-      <div className="homepage">
-        <img src={hero} alt="" />
+    <div className="container">
+      <div className="header-container">
+        <div className="homepage-img">
+          <img src={hero} alt="" />
+        </div>
       </div>
     </div>
   );

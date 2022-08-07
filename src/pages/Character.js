@@ -4,6 +4,7 @@
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "../css/character.css";
 
 const Character = () => {
   const [data, setData] = useState("");
@@ -31,27 +32,36 @@ const Character = () => {
   return isLoading ? (
     <p>En cours de chargement du character...</p>
   ) : (
-    <div>
-      <Link to="/characters" className="character-container">
-        <img
-          src={`${data.thumbnail.path + "."}${data.thumbnail.extension}`}
-          alt=""
-        />
-        <p>{data.description}</p>
-      </Link>
+    <div className="container">
+      <div className="character-container">
+        <Link to="/characters" className="character-overview">
+          <img
+            src={`${data.thumbnail.path + "."}${data.thumbnail.extension}`}
+            alt=""
+          />
+        </Link>
+        <div className="character-text">
+          <h2>{data.name}</h2>
+          <p>{data.description}</p>
+        </div>
+      </div>
 
-      <div>
+      <div className="character-img">
         {data.comics.map((comic, index) => {
           return (
-            <div key={index}>
-              <img
-                src={`${comic.thumbnail.path + "."}${
-                  comic.thumbnail.extension
-                }`}
-                alt=""
-              />
-              <p>{comic.title}</p>
-              <p>{comic.description}</p>
+            <div className="comics-card">
+              <div className="container-comics-img">
+                <img
+                  src={`${comic.thumbnail.path + "."}${
+                    comic.thumbnail.extension
+                  }`}
+                  alt=""
+                />
+                <div className="comics-text" key={index}>
+                  <h2>{comic.title}</h2>
+                  <p>{comic.description}</p>
+                </div>
+              </div>
             </div>
           );
         })}

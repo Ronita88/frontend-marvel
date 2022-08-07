@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+  background-color: blue;
+  border-style: double;
+}
+
+.footer-text h2 {
+  width: 1200px;
+  /* background-color: red; */
+  text-align: center;
+}

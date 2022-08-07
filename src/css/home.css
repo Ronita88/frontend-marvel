@@ -1,3 +1,5 @@
+/* checked */
+
 body {
   background-color: black;
 }
@@ -7,6 +9,10 @@ body {
   background-color: black;
 }
 
-.homepage img {
-  border: 1px solide blueviolet;
+/* .homepage-img {
+  border: 10px solid blueviolet;
+} */
+
+.homepage-img img {
+  object-fit: cover;
 }
