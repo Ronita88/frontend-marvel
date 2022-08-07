@@ -1,7 +1,7 @@
 // cette page doit afficher la liste des comics du personnage cliqué
 // je dois utiliser cette => Route : /comics/:characterId
 
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -32,19 +32,30 @@ const Character = () => {
     <p>En cours de chargement du character...</p>
   ) : (
     <div>
-      <img src={data.thumbnail.path + "." + data.thumbnail.extension} alt="" />
+      <Link to="/characters" className="character-container">
+        <img
+          src={`${data.thumbnail.path + "."}${data.thumbnail.extension}`}
+          alt=""
+        />
+        <p>{data.description}</p>
+      </Link>
 
-      {data.comics.map((comic, index) => {
-        return (
-          <div key={index}>
-            <img
-              src={`${comic.thumbnail.path + "."}${comic.thumbnail.extension}`}
-              alt=""
-            />
-            <p>{comic.title}</p>
-          </div>
-        );
-      })}
+      <div>
+        {data.comics.map((comic, index) => {
+          return (
+            <div key={index}>
+              <img
+                src={`${comic.thumbnail.path + "."}${
+                  comic.thumbnail.extension
+                }`}
+                alt=""
+              />
+              <p>{comic.title}</p>
+              <p>{comic.description}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -4,19 +4,23 @@
 // import packages
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../css/characters&comics.css";
 
 function Characters() {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const { id } = useParams();
+  console.log(id);
+  const [page, setPage] = useState(1);
+  const [searchbar, setSearchbar] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // je veux que quand je tape l'url que le contenu de l'url api du reacteur apparaisse
         const response = await axios.get(
-          "https://backend-marvel-rone.herokuapp.com/characters"
+          `https://backend-marvel-rone.herokuapp.com/characters?limit=100&page=${page}&name=${searchbar}`
         );
         console.log(response.data);
         setData(response.data);
@@ -26,7 +30,7 @@ function Characters() {
       }
     };
     fetchData();
-  }, []);
+  }, [page, searchbar]);
 
   return isLoading ? (
     <p>Encours de chargement...</p>
@@ -38,6 +42,33 @@ function Characters() {
           Get hooked on a hearty helping of heroes and villains from the humble
           House of Ideas
         </p>
+      </div>
+
+      {/* barre de recherche par nom de character */}
+      <div className="searchbar">
+        <div>
+          <p>
+            {data.limit * page} / {data.count} characters
+          </p>
+        </div>
+
+        <input
+          type="text"
+          placeholder="Search a character"
+          onChange={(event) => setSearchbar(event.target.value)}
+        />
+      </div>
+
+      {/* bloc pour gérer la pagination */}
+      <div className="pagination">
+        {/* une ternaire pour dire si la page est différente de 0 et qu'au clique elle passe à 0 alors le bouton disparait*/}
+        {page !== 0 && (
+          <button onClick={() => setPage(page - 1)}> précédent </button>
+        )}
+        <p>{page}</p>
+        {page <= data.count / data.limit && (
+          <button onClick={() => setPage(page + 1)}>suivant</button>
+        )}
       </div>
 
       <div className="characters-img">

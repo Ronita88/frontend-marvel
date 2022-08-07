@@ -1,3 +1,11 @@
 h1 {
-  font-size: 50px;
+  font-size: 80px;
+}
+
+.header-title {
+  /* border: 1px solid red; */
+  height: 88px;
+
+  display: flex;
+  align-items: center;
 }

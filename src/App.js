@@ -8,8 +8,6 @@ import Characters from "./pages/Characters";
 
 import Character from "./pages/Character";
 
-// import CharacterId from "./pages/CharacterId";
-
 //import components
 import Header from "./components/Header";
 
@@ -22,7 +20,7 @@ function App() {
         <Route path="/characters" element={<Characters />} />
         <Route path="/comics" element={<Comics />} />
         {/* chemin pour liste comics par character */}
-        <Route path="/character/:id" element={<Character />} />
+        <Route path="/character/:characterId" element={<Character />} />
       </Routes>
     </Router>
   );
