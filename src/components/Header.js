@@ -17,15 +17,15 @@ const Header = () => {
 
         <div className="nav-category">
           <Link to={`/characters`}>
-            <a>CHARACTERS</a>
+            <h2>CHARACTERS</h2>
           </Link>
 
           <Link to={`/comics`}>
-            <a>COMICS</a>
+            <h2>COMICS</h2>
           </Link>
 
           <Link to={`/comics`}>
-            <a>FAVORIS</a>
+            <h2>FAVORIS</h2>
           </Link>
         </div>
       </div>

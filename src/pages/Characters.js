@@ -89,7 +89,7 @@ function Characters() {
                         src={`${character.thumbnail.path + "."}${
                           character.thumbnail.extension
                         }`}
-                        alt="characters picture"
+                        alt="characters pic"
                       />
                     </div>
 

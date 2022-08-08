@@ -12,7 +12,7 @@ const Hero = () => {
           House of Ideas
         </h3>
       </div>
-      <img src={phone} />
+      <img src={phone} alt="" />
     </div>
   );
 };

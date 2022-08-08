@@ -78,7 +78,7 @@ const Comics = () => {
                       src={`${comic.thumbnail.path + "."}${
                         comic.thumbnail.extension
                       }`}
-                      alt="comics picture"
+                      alt="comics"
                     />
                     <p>{comic.title}</p>
                   </div>
