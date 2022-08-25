@@ -60,29 +60,22 @@
   border: solid 1px pink;
 }
 
-.pagination {
-  /* border: solid 1px red; */
+.allNumberPage {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.pagination button {
-  width: 8rem;
-  height: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 3rem 0;
-  margin-block: 1rem;
-  border: solid 1px white;
-  border-radius: 2rem;
-  background-color: black;
+  justify-content: space-between;
+  width: 80%;
   color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  border: solid 2px blue;
+  list-style: none;
 }
 
-.pagination p {
-  margin: 0 2rem;
+.pagination {
+  border: solid 1px red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .searchbar {

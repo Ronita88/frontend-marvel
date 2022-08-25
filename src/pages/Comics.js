@@ -4,6 +4,7 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 
 import "../css/characters&comics.css";
 import Hero from "../components/Hero";
@@ -13,8 +14,15 @@ const Comics = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams("");
   console.log(id);
-  const [page, setPage] = useState(1); //State pour les pages et permet aussi de tester la dernière page
+
+  const [page, setPage] = useState(0); //State pour les pages et permet aussi de tester la dernière page
   const [searchbar, setSearchbar] = useState(""); // State pour la recherche
+
+  const comicsForEachpage = data.limit;
+  const totalPages = Math.ceil(data.count / comicsForEachpage);
+  const changePage = ({ selected }) => {
+    setPage(selected);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +30,7 @@ const Comics = () => {
         const response = await axios.get(
           `https://backend-marvel-rone.herokuapp.com/comics?limit=100&page=${page}&title=${searchbar}`
         );
+
         console.log(response.data);
         setData(response.data);
         setIsLoading(false);
@@ -57,14 +66,18 @@ const Comics = () => {
           </div>
 
           <div className="pagination">
-            {/* une ternaire pour dire si la page est différente de 0 et qu'au clique elle passe à 0 alors le bouton disparait*/}
-            {page !== 0 && (
-              <button onClick={() => setPage(page - 1)}> précédent </button>
-            )}
-            <p>{page}</p>
-            {page <= data.count / data.limit && (
-              <button onClick={() => setPage(page + 1)}>suivant</button>
-            )}
+            <ReactPaginate
+              className="allNumberPage"
+              previousLabel={"previous"}
+              nextLabel={"next"}
+              pageCount={totalPages}
+              onPageChange={changePage}
+              containerClassName={"navigationButtons"}
+              previousLinkClassName={"previousButton"}
+              nextLinkClassName={"nextButton"}
+              disabledClassName={"navigationDisabled"}
+              activeClassName={"navigationActive"}
+            />
           </div>
         </div>
 
@@ -81,6 +94,7 @@ const Comics = () => {
                       alt="comics"
                     />
                     <p>{comic.title}</p>
+                    <p>{comic.description}</p>
                   </div>
                 </div>
               </div>

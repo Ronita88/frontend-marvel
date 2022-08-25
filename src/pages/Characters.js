@@ -4,17 +4,31 @@
 // import packages
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 import "../css/characters&comics.css";
 import Hero from "../components/Hero";
 
 function Characters() {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const { id } = useParams();
-  console.log(id);
+  // const { id } = useParams();
+
+  // ici les states des éléments de gestion de recherche et de page
   const [page, setPage] = useState(0);
   const [searchbar, setSearchbar] = useState("");
+
+  // je crée ma variable de gestion des characters par page en dehors du useEffect pour éviter le rafraichissement de la recherche inutilement
+  const charactersForEachpage = data.limit; //limit de 100 par page
+
+  // Math.ceil permet d'arrondir à l'entier supérieur
+  // la variable totalPage divise la clé count / limit pour avoir le nombre de page
+
+  //les variables totalPages et changePage sont déjà déterminés par le package du componsant react paginate
+  const totalPages = Math.ceil(data.count / charactersForEachpage);
+  const changePage = ({ selected }) => {
+    setPage(selected);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +37,7 @@ function Characters() {
         const response = await axios.get(
           `https://backend-marvel-rone.herokuapp.com/characters?limit=100&page=${page}&name=${searchbar}`
         );
+
         console.log(response.data);
         setData(response.data);
         setIsLoading(false);
@@ -58,15 +73,15 @@ function Characters() {
         </div>
 
         {/* bloc pour gérer la pagination */}
+
         <div className="pagination">
-          {/* une ternaire pour dire si la page est différente de 0 et qu'au clique elle passe à 0 alors le bouton disparait*/}
-          {page !== 0 && (
-            <button onClick={() => setPage(page - 1)}> PREV </button>
-          )}
-          <p>{page}</p>
-          {page <= data.count / data.limit && (
-            <button onClick={() => setPage(page + 1)}>NEXT</button>
-          )}
+          <ReactPaginate
+            className="allNumberPage"
+            previousLabel={"previous"}
+            nextLabel={"next"}
+            pageCount={totalPages}
+            onPageChange={changePage}
+          />
         </div>
       </div>
 
